@@ -55,4 +55,4 @@ INSERT INTO `business_items` (name, price, businessid) VALUES
   ('bobavanilla', 50, 1),
   ('bobawatermelon', 50, 1),
   ('chaitea', 50, 1),
-  ('waterbottle', 50, 1);
+  ('waterbottle', 50, 1);business_transactions

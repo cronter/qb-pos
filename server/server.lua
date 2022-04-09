@@ -103,7 +103,7 @@ QBCore.Functions.CreateCallback('qb-pos:server:GetOnDuty', function(source, cb, 
     cb(numEmployees)
 end)
 
-QBCore.Functions.CreateCallback('qb-pos:server:checkIngredients', function(source, cb, items) 
+QBCore.Functions.CreateCallback('qb-pos:server:checkIngredients', function(source, cb, items)
     for indexNum, itemInfo in pairs(items) do
         if QBCore.Functions.GetPlayer(source).Functions.GetItemByName(itemInfo.hash) == nil then
             cb(false)
@@ -143,7 +143,7 @@ end)
 RegisterNetEvent('qb-pos:server:addToRegister', function(data)
     local randomID = math.random(1111,9999)
     if Config.POSJobs[data.entrantData.businessname].ActiveOrders ~= nil then
-        Config.POSJobs[data.entrantData.businessname].ActiveOrders[randomID] = { 
+        Config.POSJobs[data.entrantData.businessname].ActiveOrders[randomID] = {
             items = data.data,
             entrantData = data.entrantData
         }
@@ -269,7 +269,7 @@ RegisterNetEvent('qb-pos:server:turnInCommissions', function()
 			TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[v], "remove", #tickets)
 		end
 	end
-	if tradeable then 
+	if tradeable then
 		player.Functions.AddMoney('bank', pay, 'receipts')
 		TriggerClientEvent('QBCore:Notify', src, "Tickets: "..totaltickets.." Total: $"..pay, 'success')
 	else
@@ -340,8 +340,8 @@ RegisterNetEvent('qb-pos:server:washDirtyMoney', function()
                 }
             )
             player.Functions.RemoveItem('markedbills', 1)
-			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], "remove")
-            TriggerEvent('qb-bossmenu:server:addAccountMoney', player.PlayerData.job.name, worth)
+			      TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], "remove")
+            TriggerEvent('qb-bossmenu:server:addAccountMoney', player.PlayerData.job.name, worth * 0.8)
         end
     end
 end)

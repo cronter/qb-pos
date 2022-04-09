@@ -81,7 +81,7 @@ Config.POSJobs = {
         },
         BossArea = {
             {
-                
+
             }
         },
         WorkAreas = {
@@ -315,7 +315,7 @@ Config.POSJobs = {
                 [6] = { hash = 'a_c_cat_01', coords = vector4(-575.52, -1063.21, 22.34, 44.51), sitting = true },
                 [7] = { hash = 'a_c_cat_01', coords = vector4(-581.82, -1066.43, 22.34, 287.58), sitting = true },
                 [8] = { hash = 'a_c_cat_01', coords = vector4(-583.49, -1069.39, 22.99, 293.01) , sitting = false },
-                [9] = { hash = 'a_c_cat_01', coords = vector4(-584.27, -1065.85, 22.34, 181.7), sitting = true },  
+                [9] = { hash = 'a_c_cat_01', coords = vector4(-584.27, -1065.85, 22.34, 181.7), sitting = true },
                 [10] = { hash = 'a_c_cat_01', coords = vector4(-581.1, -1063.61, 22.79, 219.69), sitting = false },
                 [11] = { hash = 'a_c_cat_01', coords = vector4(-572.98, -1057.41, 24.5, 88.18), sitting = true }
             },
@@ -333,12 +333,12 @@ Config.POSJobs = {
             commission = 0.1,
         }
     },
-    ["cluckinbell"] = {
+    ["burgershot"] = {
         Locations = {
             ["main"] = {
-                label = "Cluckin' Bell",
-                coords = {x = -517.92, y = -694.76, z = 33.17, h = 179.86},
-                blip = 89,
+                label = "Burger Shot",
+                coords = {x = -1190.29, y = -888.76, z = 121.29, h = 179.86},
+                blip = 106,
                 color = 5,
             },
         },
@@ -349,85 +349,86 @@ Config.POSJobs = {
         Perimeter = {
             {
                 zone = {
-                    vector2(-497.48715209961, -669.75274658203),
-                    vector2(-535.56378173828, -670.10955810547),
-                    vector2(-532.435546875, -718.93023681641),
-                    vector2(-498.37344360352, -711.32434082031)
+                    vector2(-1171.2, -866.54),
+                    vector2(-1154.18, -892.64),
+                    vector2(-1197.32, -918.92),
+                    vector2(-1213.71, -894.99)
                 },
-                minZ = 31.0,
-                maxZ = 35.0
+                minZ = 10,
+                maxZ = 18,
+                debug = true,
             }
         },
         TimeClocks = {
             {
-                coords = vector3(-510.22, -702.89, 33.37),
-                heading = 180.44,
+                coords = vector3(-1192.08, -901.23, 13.93),
+                heading = 303.93,
                 width = 0.6,
                 height = 2.5,
                 icon = "fas fa-user-check",
-                label = "Cluck In/Out",
+                label = "Clock In/Out",
             }
         },
         Registers = {
             {
-                coords = vector3(-520.21, -697.48, 33.37),
-                radius = 0.5,
+                coords = vector3(-1193.22, -895.26, 13.68),
+                radius = 1,
             },
             {
-                coords = vector3(-518.6, -697.5, 33.37),
-                radius = 0.5,
+                coords = vector3(-1194.58, -893.22, 13.68),
+                radius = 1,
             },
             {
-                coords = vector3(-516.95, -697.57, 33.37),
-                radius = 0.5,
+                coords = vector3(-1196.21, -891.21, 13.68),
+                radius = 1,
             },
             {
-                coords = vector3(-515.31, -697.48, 33.37),
-                radius = 0.5,
+                coords = vector3(-1192.39, -906.52, 13.68),
+                radius = 1,
             }
         },
         Stash = {
             {
-                coords = vector3(-518.72, -700.26, 33.12),
-                radius = 1.25
+                coords = vector3(-1197.67, -894.4, 14.16),
+                radius = 1.5
             }
         },
         Trays = {
             {
-                coords = vector3(-516.12, -697.49, 33.37),
+                coords = vector3(-1193.9, -894.29, 13.72),
                 icon = "fas fa-drumstick-bite",
                 radius = 0.5,
             },
             {
-                coords = vector3(-517.76, -697.49, 33.37),
+                coords = vector3(-1195.46, -892.27, 14.2),
                 icon = "fas fa-drumstick-bite",
                 radius = 0.5,
             },
             {
-                coords = vector3(-519.53, -697.64, 33.37),
+                coords = vector3(-1193.91, -907.37, 14),
                 icon = "fas fa-drumstick-bite",
                 radius = 0.5,
             },
         },
         Fridge = {
             {
-                coords = vector3(-514.1, -702.88, 33.37),
+                coords = vector3(-1203.89, -895.57, 14.15),
                 icon = "fas fa-temperature-low",
-                heading = 183.78,
-                width = 1.2,
-                height = 1.0
+                heading = 121.84,
+                width = 1,
+                height = 1.7
             }
         },
         Sinks = {
             {
-                coords = vector3(-512.47, -702.94, 33.37),
+                coords = vector3(-1196.81, -901.98, 13.92),
                 radius = 0.5,
             },
         },
         WorkAreas = {
             ["grill"] = {
-                coords = vector3(-516.38, -700.20, 33.37),
-                heading = 358.46,
+                coords = vector3(-1202.56, -897.38, 14.03),
+                heading = 119.48,
                 width = 1.1,
                 height = 1.5,
                 icon = "fas fa-fire",
@@ -438,8 +439,8 @@ Config.POSJobs = {
                 anim = "base",
             },
             ["choppingboard"] = {
-                coords = vector3(-519.98, -702.84, 33.37),
-                heading = 174.84,
+                coords = vector3(-1198.12, -897.65, 14.26),
+                heading = 119.48,
                 width = 1.2,
                 height = 1.5,
                 icon = "fas fa-utensils",
@@ -450,8 +451,8 @@ Config.POSJobs = {
                 anim = "cop_b_idle",
             },
             ["fryer"] = {
-                coords = vector3(-521.45, -701.37, 33.37),
-                heading = 91.12,
+                coords = vector3(-1201.59, -899.05, 14.05),
+                heading = 119.48,
                 width = 1.5,
                 height = 1.5,
                 icon = "fas fa-utensils",
@@ -474,8 +475,8 @@ Config.POSJobs = {
                 anim = "fixing_a_ped",
             },
             ["drinks"] = {
-                coords = vector3(-514.46, -699.13, 33.37),
-                heading = 269.0,
+                coords = vector3(-1199.34, -895.56, 14.09),
+                heading = 119.48,
                 width = 0.6,
                 height = 1.7,
                 icon = "fas fa-mug-hot",
@@ -487,188 +488,80 @@ Config.POSJobs = {
             }
         },
         Items = {
-            ["cluckmighty"] = {
+            ['bs_meat-free'] = {
                 ingredients = {
-                    { hash = "burgerbun", quantity = 1, },
-                    { hash = "slicedpickle", quantity = 1, },
-                    { hash = "cheddar", quantity = 1, },
-                    { hash = "lettuce", quantity = 1, },
-                    { hash = "chickenmeat", quantity = 1, },
+                  { hash = 'bs_lettuce', quantity = 3 },
+                  { hash = 'bs_tomato', quantity = 3 },
                 },
-                food = true,
-                workarea = "countertop",
+                workarea = 'choppingboard',
                 quantity = 1,
             },
-            ["clucklittle"] = {
+            ['bs_torpedo'] = {
                 ingredients = {
-                    { hash = 'burgerbun', quantity = 1, },
-                    { hash = 'cheddar', quantity = 1, },
-                    { hash = 'lettuce', quantity = 1, },
-                    { hash = 'slicedpickle', quantity = 1, },
-                    { hash = 'chickenmeat', quantity = 1, },
+                    { hash = 'bs_patty', quantity = 2 },
                 },
-                food = true,
-                workarea = "countertop",
+                workarea = 'choppingboard',
                 quantity = 1,
             },
-            ["clucksalad"] = {
+            ['bs_the-bleeder'] = {
                 ingredients = {
-                    { hash = 'cheddar', quantity = 1, },
-                    { hash = 'slicedonion', quantity = 1, },
-                    { hash = 'lettuce', quantity = 1, },
+                    { hash = 'bs_patty', quantity = 2 },
+                    { hash = 'bs_lettuce', quantity = 1 },
+                    { hash = 'bs_tomato', quantity = 2 },
                 },
-                food = true,
-                workarea = "countertop",
+                workarea = 'choppingboard',
                 quantity = 1,
             },
-            ["clucksoup"] = {
+            ['bs_money-shot'] = {
                 ingredients = {
-                    { hash = 'chickenmeat', quantity = 1, },
-                    { hash = 'cluckecola', quantity = 1, },
-                    { hash = 'cluckfarmer', quantity = 1, },
+                    { hash = 'bs_patty', quantity = 1 },
+                    { hash = 'bs_lettuce', quantity = 1 },
+                    { hash = 'bs_tomato', quantity = 1 },
                 },
-                food = true,
-                workarea = "countertop",
+                workarea = 'choppingboard',
                 quantity = 1,
             },
-            ['slicedpotato'] = {
+            ['bs_the-heart-stopper'] = {
                 ingredients = {
-                    { hash = 'potato', quantity = 1 },
+                    { hash = 'bs_patty', quantity = 3 },
+                    { hash = 'bs_lettuce', quantity = 3 },
+                    { hash = 'bs_tomato', quantity = 3 },
                 },
-                workarea = "choppingboard",
-                quantity = 3,
-            },
-            ['slicedpickle'] = {
-                ingredients = {
-                    { hash = 'pickle', quantity = 1 },
-                },
-                workarea = "choppingboard",
-                quantity = 3,
-            },
-            ['slicedonion'] = {
-                ingredients = {
-                    {hash = 'onion', quantity = 1 },
-                },
-                workarea = "choppingboard",
-                quantity = 3,
-            },
-            ['chickenmeat'] = {
-                ingredients = {
-                    { hash = 'chickenpatty', quantity = 1 },
-                },
-                workarea = "grill",
-                quantity = 6,
-            },
-            ['cluckfries'] = {
-                ingredients = {
-                    { hash = 'slicedpotato', quantity = 1 },
-                },
-                food = true,
-                workarea = "fryer",
+                workarea = 'choppingboard',
                 quantity = 1,
             },
-            ['cluckveggie'] = {
+            ['bs_patty'] = {
                 ingredients = {
-                    { hash = 'frozenveggie', quantity = 1 },
+                    { hash = 'bs_patty_raw', quantity = 1 },
                 },
-                food = true,
-                workarea = "fryer",
-                quantity = 3,
-            },
-            ['cluckrings'] = {
-                ingredients = {
-                    { hash = 'frozendough', quantity = 1 },
-                },
-                food = true,
-                workarea = "fryer",
-                quantity = 12,
-            },
-            ['cluckballs'] = {
-                ingredients = {
-                    { hash = 'frozendough', quantity = 1 },
-                },
-                food = true,
-                workarea = "fryer",
-                quantity = 6,
-            },
-            ['cluckbites'] = {
-                ingredients = {
-                    { hash = 'frozennugget', quantity = 1 },
-                },
-                food = true,
-                workarea = "fryer",
-                quantity = 6,
-            },
-            ['cluckfarmer'] = {
-                ingredients = {
-                    { hash = 'cluckfoot', quantity = 1 },
-                },
-                food = true,
-                workarea = "grill",
+                workarea = 'grill',
                 quantity = 1,
             },
-            ['cluckwings'] = {
+            ['bs_fries'] = {
                 ingredients = {
-                    { hash = 'rawwings', quantity = 1 },
+                    { hash = 'bs_potato', quantity = 1 },
                 },
-                food = true,
-                workarea = "fryer",
-                quantity = 3,
+                workarea = 'fryer',
+                quantity = 1,
             },
-            ['burgerbun'] = {
+            ['bs_softdrink'] = {
                 ingredients = {
-                    { hash = 'frozendough', quantity = 1 },
+                    { hash = 'bs_ingredients_hfcs', quantity = 1 },
                 },
-                workarea = "grill",
-                quantity = 12,
-            },
-            ['cluckecola'] = {
                 workarea = 'drinks',
                 quantity = 1,
-                drink = true,
             },
-            ['clucksprunk'] = {
+            ['bs_milkshake'] = {
+                ingredients = {
+                    { hash = 'bs_ingredients_icecream', quantity = 1 },
+                },
                 workarea = 'drinks',
                 quantity = 1,
-                drink = true,
             },
-            ['clucktang'] = {
-                workarea = 'drinks',
-                quantity = 1,
-                drink = true,
-            },
-        },
-        Animals = {
-            hash = 'a_c_hen',
-            icon = 'fas fa-drumstick-bite',
-            label = 'Farm to table!',
-            animDict = 'creatures@hen@amb@world_hen_pecking@idle_a',
-            anim = 'idle_c',
-            models = {
-                [1] = { coords = vector4(-510.95, -694.24, 33.17, 10.79), sitting = true},
-                [2] = { coords = vector4(-523.72, -689.75, 33.17, 275.57), sitting = true},
-                [3] = { coords = vector4(-519.63, -689.48, 33.17, 296.03), sitting = true},
-                [4] = { coords = vector4(-517.29, -688.03, 34.18, 115.51), sitting = true},
-                [5] = { coords = vector4(-519.8, -684.88, 33.17, 91.35), sitting = false},
-                [6] = { coords = vector4(-522.43, -685.66, 33.17, 170.19), sitting = true},
-                [7] = { coords = vector4(-524.13, -696.53, 33.17, 51.84), sitting = true},
-                [8] = { coords = vector4(-525.43, -696.23, 33.17, 287.64), sitting = true},
-                [9] = { coords = vector4(-524.96, -695.25, 33.17, 198.84), sitting = false},
-                [10] = { coords = vector4(-516.48, -692.66, 33.17, 209.97), sitting = true},  
-                [11] = { coords = vector4(-515.2, -692.34, 34.37, 270.52), sitting = false},
-            },
-        },
-        AnimalSayings = {
-            [1] = 'Co-ka. Co-ka Caww.',
-            [2] = 'Cha-chi Cha-chi Cha-chi',
-            [3] = 'A coodle doodle doo',
-            [4] = 'Coo-coo ka-cha',
-            [5] = 'Chick chick chi-caww',
-            [6] = 'Bawk bawk bawk',
         },
         Receipt = {
-            receipt = 'cluckinbell-ticket',
-            commission = 0.1,
+            receipt = 'burgershot-ticket',
+            commission = 0.5,
         }
     },
     -- ["yellowjack"] = {

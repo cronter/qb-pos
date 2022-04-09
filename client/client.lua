@@ -80,7 +80,7 @@ local function PrepareFood(foodItem)
 		animDict = animDict,
 		anim = anim,
 		flags = 8,
-	}, {}, {}, function()  
+	}, {}, {}, function()
 		TriggerServerEvent('qb-pos:server:prepareFood', playerJob, Config.POSJobs[playerJob].Items[foodItem].workarea, foodItem, Config.POSJobs[playerJob].Items[foodItem].quantity)
 		StopAnimTask(PlayerPedId(), animDict, anim, 1.0)
 	end, function() -- Cancel
@@ -144,7 +144,7 @@ RegisterNetEvent('qb-pos:client:toggleDuty', function()
             else
                 onDuty = not PlayerJob.onduty
                 TriggerServerEvent("QBCore:ToggleDuty")
-            end    
+            end
         end
     end, PlayerJob.name)
 end)
@@ -220,10 +220,10 @@ RegisterNetEvent('qb-pos:client:sinkWashHands', function()
         disableMouse = false,
         disableCombat = true,
     }, {
-        animDict = "mp_arresting", 
-        anim = "a_uncuff", 
+        animDict = "mp_arresting",
+        anim = "a_uncuff",
         flags = 8,
-    }, {}, {}, function()  
+    }, {}, {}, function()
 		TriggerEvent('QBCore:Notify', "You\'ve washed your hands!", 'success')
     end, function() -- Cancel
         TriggerEvent('inventory:client:busy:status', false)
@@ -238,10 +238,10 @@ RegisterNetEvent('qb-pos:client:sinkWashDirtyMoney', function()
         disableMouse = false,
         disableCombat = true,
     }, {
-        animDict = "mp_arresting", 
-        anim = "a_uncuff", 
+        animDict = "mp_arresting",
+        anim = "a_uncuff",
         flags = 8,
-    }, {}, {}, function()  
+    }, {}, {}, function()
 		TriggerEvent('QBCore:Notify', "You\'ve washed your hands!", 'success')
         TriggerServerEvent('qb-pos:server:washDirtyMoney')
     end, function() -- Cancel
@@ -271,7 +271,7 @@ RegisterNetEvent('qb-pos:client:makeItem', function(data)
 	if onDuty then
         local playerJob = QBCore.Functions.GetPlayerData().job.name
         if Config.POSJobs[playerJob].Items[data.item] ~= nil then
-			QBCore.Functions.TriggerCallback('qb-pos:server:checkIngredients', function(amount) 
+			QBCore.Functions.TriggerCallback('qb-pos:server:checkIngredients', function(amount)
 				if amount then
                     PrepareFood(data.item)
                 else
@@ -293,7 +293,7 @@ RegisterNetEvent('qb-pos:client:accessWorkArea', function(data)
                 if v.ingredients ~= nil then
                     local textString = 'Ingredients:'
                     for i,j in pairs(v.ingredients) do
-                        textString = textString .. '<br> - ' .. QBCore.Shared.Items[j.hash].label
+                        textString = textString .. '<br> - ' .. QBCore.Shared.Items[j.hash].label..' x'..j.quantity
                     end
                     menuItems[#menuItems+1] = {
                         header = QBCore.Shared.Items[k].label, txt = textString, params = { event = 'qb-pos:client:makeItem', args = { item = k } }
@@ -381,7 +381,7 @@ end)
 
 RegisterNUICallback('AcceptTransaction', function(data, cb)
     local key = tostring(data.key)
-    TriggerServerEvent('qb-pos:server:completeTransaction', 
+    TriggerServerEvent('qb-pos:server:completeTransaction',
         data.entrantData[key].entrantData.entrantcitizenid,
         data.entrantData[key].entrantData.entrantfirstname,
         data.entrantData[key].entrantData.entrantlastname,
@@ -395,8 +395,8 @@ RegisterNUICallback('AcceptTransaction', function(data, cb)
 end)
 
 RegisterNUICallback('SelfCheckout', function(data, cb)
-    TriggerServerEvent('qb-pos:server:completeTransaction', 
-        data.entrantData.entrantcitizenid, 
+    TriggerServerEvent('qb-pos:server:completeTransaction',
+        data.entrantData.entrantcitizenid,
         data.entrantData.entrantfirstname,
         data.entrantData.entrantlastname,
         data.entrantData.businessname,
@@ -420,8 +420,8 @@ CreateThread(function()
         end
         if Config.POSJobs[k].Registers ~= nil then
             for i,j in pairs(Config.POSJobs[k].Registers) do
-                exports['qb-target']:AddCircleZone(k .. "Register" .. i, j.coords, j.radius, { name=k .. "Register" .. i, debugPoly=false, useZ=true, },
-                    { options = { 
+                exports['qb-target']:AddCircleZone(k .. "Register" .. i, j.coords, j.radius, { name=k .. "Register" .. i, debugPoly=true, useZ=true, },
+                    { options = {
                         { type = "client", event = "qb-pos:client:openRestaurant", icon = "fas fa-credit-card", label = "Charge Customer", job = k, params = { job = k, }, position = 1 },
                         { type = "client", event = "qb-pos:client:openPayment", icon = "fas fa-cash-register", label = "Make Payment", params = { job = k, }, position = 2, canInteract = function() return ShowIfEmployees(k) end },
                         { type = "client", event = "qb-pos:client:openSelfCheckout", icon = 'fas fa-cash-register', label = "Self Checkout", params = { job = k, }, position = 3, canInteract = function() return ShowIfNoEmployees(k) end }
@@ -432,9 +432,9 @@ CreateThread(function()
         end
         if Config.POSJobs[k].Stash ~= nil then
             for i,j in pairs(Config.POSJobs[k].Stash) do
-                exports['qb-target']:AddCircleZone(k .. "Stash", j.coords, j.radius, { name=k .. "Stash", debugPoly=false, useZ = true, }, 
-                    { options = { 
-                        { type = "client", event = 'qb-pos:client:openStash', icon = "fas fa-box-open", label = 'Open Stash', job = k, id = k .. "Stash", position = 1 }, 
+                exports['qb-target']:AddCircleZone(k .. "Stash", j.coords, j.radius, { name=k .. "Stash", debugPoly=true, useZ = true, },
+                    { options = {
+                        { type = "client", event = 'qb-pos:client:openStash', icon = "fas fa-box-open", label = 'Open Stash', job = k, id = k .. "Stash", position = 1 },
                     },
                     distance = 1.5
                 })
@@ -442,9 +442,9 @@ CreateThread(function()
         end
         if Config.POSJobs[k].Trays ~= nil then
             for i,j in pairs(Config.POSJobs[k].Trays) do
-                exports['qb-target']:AddCircleZone(k .. "Tray" .. i, j.coords, j.radius, { name=k .. "Tray" .. i, debugPoly=false, useZ = true, }, 
-                    { options = { 
-                        { type = "client", event = 'qb-pos:client:openStash', icon = j.icon, label = 'Open Tray', id = k .. "Tray" .. i, position = 1 }, 
+                exports['qb-target']:AddCircleZone(k .. "Tray" .. i, j.coords, j.radius, { name=k .. "Tray" .. i, debugPoly=true, useZ = true, },
+                    { options = {
+                        { type = "client", event = 'qb-pos:client:openStash', icon = j.icon, label = 'Open Tray', id = k .. "Tray" .. i, position = 1 },
                     },
                     distance = 1.5
                 })
@@ -452,10 +452,10 @@ CreateThread(function()
         end
         if Config.POSJobs[k].Sinks ~= nil then
             for i,j in pairs(Config.POSJobs[k].Sinks) do
-                exports['qb-target']:AddCircleZone(k .. "Sink" .. i, j.coords, j.radius, { name=k .. "Sink" .. i, debugPoly=false, useZ = true, }, 
-                    { options = { 
+                exports['qb-target']:AddCircleZone(k .. "Sink" .. i, j.coords, j.radius, { name=k .. "Sink" .. i, debugPoly=true, useZ = true, },
+                    { options = {
                         { type = "client", event = 'qb-pos:client:sinkWashHands', icon = 'fas fa-hand-holding-water', label = 'Wash Hands', job = k, position = 1 },
-                        { type = "client", event = 'qb-pos:client:sinkWashDirtyMoney', icon = 'fas fa-donate', label = 'Wash Dirty Money', job = k, position = 2, canInteract = function() return ShowIfDirtyMoney(k) end }, 
+                        { type = "client", event = 'qb-pos:client:sinkWashDirtyMoney', icon = 'fas fa-donate', label = 'Wash Dirty Money', job = k, position = 2, canInteract = function() return ShowIfDirtyMoney(k) end },
                     },
                     distance = 1.5
                 })
@@ -463,10 +463,10 @@ CreateThread(function()
         end
         if Config.POSJobs[k].WorkAreas ~= nil then
             for i,j in pairs(Config.POSJobs[k].WorkAreas) do
-                exports['qb-target']:AddBoxZone(k .. i, j.coords, j.width, j.height, 
-                    { name=k .. i, heading = j.heading, debugPoly=false, minZ = j.coords.z - 1.0, maxZ = j.coords.z + 1.0, }, 
-                    { options = { 
-                        { type = "client", event = 'qb-pos:client:accessWorkArea', icon = j.icon, label = j.label, job = k, params = { workarea = i } }, 
+                exports['qb-target']:AddBoxZone(k .. i, j.coords, j.width, j.height,
+                    { name=k .. i, heading = j.heading, debugPoly=false, minZ = j.coords.z - 1.0, maxZ = j.coords.z + 1.0, },
+                    { options = {
+                        { type = "client", event = 'qb-pos:client:accessWorkArea', icon = j.icon, label = j.label, job = k, params = { workarea = i } },
                     },
                     distance = 2.0
                 })
@@ -474,12 +474,12 @@ CreateThread(function()
         end
         if Config.POSJobs[k].TimeClocks ~= nil then
             for i,j in pairs(Config.POSJobs[k].TimeClocks) do
-                exports['qb-target']:AddBoxZone(k .. 'timeclock' .. i, j.coords, j.width, j.height, 
-                    { name=k .. 'timeclock' .. i, heading = j.heading, debugPoly=false, minZ = j.coords.z - 1.0, maxZ = j.coords.z + 1.0, }, 
-                    { options = { 
-                        { type = "client", event = 'qb-pos:client:toggleDuty', icon = j.icon, label = j.label, job = k, position = 1 }, 
-                        { type = 'client', event = 'qb-pos:client:priceMenu', icon = 'fas fa-folder-open', label = 'Menu Management', job = k, canInteract = function() return CheckManager() end, position = 2 },
-                        { type = 'client', event = 'fivem-appearance:outfitsMenu', icon = 'fas fa-tshirt', label = 'Clothing', job = k, position = 3},
+                exports['qb-target']:AddBoxZone(k .. 'timeclock' .. i, j.coords, j.width, j.height,
+                    { name=k .. 'timeclock' .. i, heading = j.heading, debugPoly=true, minZ = j.coords.z - 1.0, maxZ = j.coords.z + 1.0, },
+                    { options = {
+                        { type = "client", event = 'qb-pos:client:toggleDuty', icon = j.icon, label = j.label, job = k, position = 1 ,debug = true},
+                        { type = 'client', event = 'qb-pos:client:priceMenu', icon = 'fas fa-folder-open', label = 'Menu Management', job = k, canInteract = function() return CheckManager() end, position = 2 , debugpoly = true},
+                        --{ type = 'client', event = 'fivem-appearance:outfitsMenu', icon = 'fas fa-tshirt', label = 'Clothing', job = k, position = 3},
                     },
                     distance = 2.0
                 })
@@ -496,10 +496,10 @@ CreateThread(function()
         end
         if Config.POSJobs[k].Fridge ~= nil then
             for i,j in pairs(Config.POSJobs[k].Fridge) do
-                exports['qb-target']:AddBoxZone(k .. 'fridge' .. i, j.coords, j.width, j.height, 
-                    { name=k .. 'fridge' .. i, heading = j.heading, debugPoly=false, minZ = j.coords.z - 1.0, maxZ = j.coords.z + 1.0, }, 
-                    { options = { 
-                        { type = "client", event = 'qb-pos:client:openStash', icon = j.icon, label = 'Open Fridge', id = k .. "Fridge" .. i, position = 1 }, 
+                exports['qb-target']:AddBoxZone(k .. 'fridge' .. i, j.coords, j.width, j.height,
+                    { name=k .. 'fridge' .. i, heading = j.heading, debugPoly=true, minZ = j.coords.z - 1.0, maxZ = j.coords.z + 1.0, },
+                    { options = {
+                        { type = "client", event = 'qb-pos:client:openStash', icon = j.icon, label = 'Open Fridge', id = k .. "Fridge" .. i, position = 1 },
                     },
                     distance = 2.0
                 })
@@ -557,10 +557,10 @@ CreateThread(function()
             end
         end
     end
-    exports['qb-target']:AddCircleZone('receiptTurnIn', vector3(241.67, 226.11, 106.92), 0.5, 
-        { name='receiptTurnIn', debugPoly=false, useZ = true, }, 
-        { options = { 
-            { type = "server", event = 'qb-pos:server:turnInCommissions', icon = 'fas fa-receipt', label = 'Turn in Receipts', }, 
+    exports['qb-target']:AddCircleZone('receiptTurnIn', vector3(241.67, 226.11, 106.92), 0.5,
+        { name='receiptTurnIn', debugPoly=false, useZ = true, },
+        { options = {
+            { type = "server", event = 'qb-pos:server:turnInCommissions', icon = 'fas fa-receipt', label = 'Turn in Receipts', },
         },
         distance = 2.0
     })
